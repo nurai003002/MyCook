@@ -803,7 +803,7 @@ header.main-header .header-sticky.active{
 /************************************/
 
 .hero{
-	background: radial-gradient(45.15% 42.05% at 49.04% 57.08%, rgba(17, 74, 67, 0) 0.01%, #114A43 100%), url('../images/section-bg.svg');
+	background: #2c2927;
 	background-repeat: no-repeat;
 	background-position: center center;
 	background-size: cover;
@@ -1726,7 +1726,7 @@ header.main-header .header-sticky.active{
 /************************************/
 
 .our-features.bg-section{
-	background: radial-gradient(45.15% 42.05% at 49.04% 57.08%, rgba(17, 74, 67, 0) 0.01%, #114A43 100%), url('../images/section-bg.svg');
+	background: #2c2927;
     background-repeat: no-repeat;
     background-position: center center;
     background-size: cover;
@@ -1956,7 +1956,7 @@ header.main-header .header-sticky.active{
 /************************************/
 
 .cta-box.bg-section{
-	background: radial-gradient(45.15% 42.05% at 49.04% 57.08%, rgba(17, 74, 67, 0) 0.01%, #114A43 100%), url(../images/section-bg.svg);
+	background:#2c2927;
     background-repeat: no-repeat;
     background-position: center center;
     background-size: cover;
@@ -2316,7 +2316,7 @@ header.main-header .header-sticky.active{
 /************************************/
 
 .main-footer.bg-section{
-	background: radial-gradient(39.27% 31.11% at 49.13% 41.46%, rgba(17, 74, 67, 0) 0.01%, #114A43 100%), url(../images/section-bg.svg);
+	background:#2c2927;
 	background-repeat: no-repeat;
     background-position: top center;
     background-size: cover;
@@ -2429,7 +2429,7 @@ header.main-header .header-sticky.active{
 
 .page-header{
 	position: relative;
-	background: radial-gradient(50.37% 27.86% at 49.08% 54.61%, rgba(17, 74, 67, 0) 0.01%, #114A43 100%), url('../images/section-bg.svg');
+	background: radial-gradient(50.37% 27.86% at 49.08% 54.61%, rgba(17, 74, 67, 0) 0.01%, #2c2927 100%), url('../images/section-bg.svg');
     background-repeat: no-repeat;
 	background-position: center center;
 	background-size: cover;
@@ -2878,7 +2878,7 @@ header.main-header .header-sticky.active{
 }
 
 .our-process.bg-section{
-    background: radial-gradient(53.2% 49.55% at 49.2% 49.75%, rgba(17, 74, 67, 0) 0.01%, #114A43 100%), url('../images/section-bg.svg');
+    background: #2c2927;
     background-repeat: no-repeat;
 	background-position: center center;
 	background-size: cover;
@@ -6862,4 +6862,68 @@ header.main-header .header-sticky.active{
 	.error-page-content-heading h2{
         font-size: 28px;
 	}
+}
+/* Основной стиль для header */
+.main-header {
+	position: fixed; 
+    background-color: #6c6a6a53; /* Белый фон */
+    border-radius: 20px; /* Скругленные углы */
+    padding: 5px; /* Внутренние отступы */
+	top: 20px;
+	margin-left: 100px;
+	margin-right: 100px;
+    z-index: 1000; 
+}
+
+/* Логотип */
+.navbar-brand img {
+    max-width: 100px; /* Логотип адаптирован по ширине */
+    height: auto;
+}
+
+/* Основное меню */
+.navbar-nav {
+    display: flex;
+    gap: 5px; 
+}
+
+.navbar-nav .nav-item .nav-link {
+    color: hsl(0, 0%, 100%); 
+    font-weight: 500;
+    text-transform: uppercase;
+    transition: color 0.3s ease;
+}
+
+.navbar-nav .nav-item .nav-link:hover {
+    color: #ff7b00; 
+}
+
+.header-btn {
+    display: flex;
+    gap: 2px; 
+}
+
+@media (max-width: 768px) {
+    .main-header {
+        padding: 10px; 
+    }
+
+    .navbar-nav {
+        flex-direction: column; 
+        gap: 10px; 
+    }
+
+    .header-btn {
+        flex-direction: column;
+        gap: 10px;
+    }
+}
+.hidden {
+    transform: translateY(-200%); /* Полностью скрываем заголовок */
+    transition: transform 0.3s ease;
+}
+
+.visible {
+    transform: translateY(0); /* Показываем заголовок */
+    transition: transform 0.3s ease;
 }

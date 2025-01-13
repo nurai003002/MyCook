@@ -50,3 +50,23 @@
         <div class="responsive-menu"></div>
     </div>
 </header>
+<script>// Выбираем элемент заголовка
+    const header = document.querySelector('.main-header');
+    let lastScrollY = window.scrollY;
+    
+    // Добавляем обработчик события прокрутки
+    window.addEventListener('scroll', () => {
+        const currentScrollY = window.scrollY;
+    
+        if (currentScrollY < lastScrollY) {
+            // Прокрутка вверх: показываем заголовок
+            header.style.top = "20px"; // Фиксируем сверху
+        } else {
+            // Прокрутка вниз: скрываем заголовок
+            header.style.top = "-100px"; // Скрываем за пределы видимости
+        }
+    
+        lastScrollY = currentScrollY; // Обновляем значение прокрутки
+    });
+    
+</script>
