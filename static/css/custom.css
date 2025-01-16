@@ -438,7 +438,7 @@ body{
 	font-size: 15px;
     font-weight: 500;
 	line-height: 1.2em;
-    text-transform: capitalize;
+    text-transform: none;
     color: var(--dark-color);
 	padding-left: 24px;
     margin-bottom: 20px;
@@ -524,6 +524,10 @@ header.main-header{
 	border-bottom: 1px solid var(--dark-divider-color);
 	position: relative;
 	z-index: 100;
+	width: 90%; /* Установите ширину, например, 90% от ширины окна */
+    max-height: 85px; /* Максимальная ширина, если нужно ограничить */
+    margin: 0 auto; 
+	padding: 0;
 }
 
 header.main-header .header-sticky{
@@ -3011,8 +3015,11 @@ header.main-header .header-sticky.active{
 	margin-bottom: 30px;
 }
 
-.service-image{
-	position: relative;
+.service-image {
+    position: relative;
+    border: 1px solid; 
+    border-radius: 20px;
+	color: black;
 }
 
 .service-image figure{
@@ -3052,8 +3059,8 @@ header.main-header .header-sticky.active{
     bottom: 0;
     left: 0;
     right: 0;
-    background-color: var(--primary-color);
-    opacity: 20%;
+    background-color: #f28100;
+    opacity: 100%;
     width: 100%;
     height: 100%;
     z-index: 0;
