@@ -18,9 +18,9 @@
                 <div class="collapse navbar-collapse main-menu">
                     <div class="nav-menu-wrapper">
                         <ul class="navbar-nav mr-auto" id="menu">
-                            <li class="nav-item"><a class="nav-link" href="index.html">Главная</a></li>
+                            <li class="nav-item"><a class="nav-link" href="{% url 'index' %}">Главная</a></li>
                             <li class="nav-item"><a class="nav-link" href="about.html">О нас</a>
-                            <li class="nav-item"><a class="nav-link" href="projects.html">Рецепты</a></li>
+                            <li class="nav-item"><a class="nav-link" href="{% url 'video_recipes' %}">Рецепты</a></li>
                             <li class="nav-item submenu"><a class="nav-link" href="service.html">Услуги</a>
                                 <ul>                                        
                                     <li class="nav-item"><a class="nav-link" href="service-single.html">Доставка</a></li>
