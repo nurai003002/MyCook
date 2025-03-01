@@ -89,4 +89,26 @@ class Recipe(models.Model):
     class Meta:
         verbose_name = "Рецепт"
         verbose_name_plural = 'Рецепты'
-        
+
+class Assortment(models.Model):
+    image = models.ImageField(
+        verbose_name='Изображение', 
+        upload_to='assortiment/'
+    )
+    title = models.CharField(
+        max_length=500,
+        verbose_name='Заголовок',
+        blank=True, null=True
+    )
+    description = RichTextField(
+        verbose_name='Описание',
+        blank=True, null=True
+    )
+
+    def __str__(self):
+        return self.title
+    
+    class Meta:
+        verbose_name = 'Ассортимент'
+        verbose_name_plural = 'Ассортименты'
+

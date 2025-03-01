@@ -1,6 +1,7 @@
 from django.contrib import admin
 
-from apps.secondary.models import About, AboutInline, Recipe, RecipeCategory
+from apps.secondary.models import About, AboutInline, Recipe, RecipeCategory, Assortment
+
 # Register your models here.
 
 class AboutInlineTabularInline(admin.TabularInline):
@@ -12,6 +13,7 @@ class AboutAdmin(admin.ModelAdmin):
     list_display = ('id', 'title', 'description')
     list_filter = ('id', 'title')
     inlines = (AboutInlineTabularInline, )
+
     
 @admin.register(Recipe)
 class RecipeAdmin(admin.ModelAdmin):
@@ -22,3 +24,10 @@ class RecipeAdmin(admin.ModelAdmin):
 class RecipeCategoryAdmin(admin.ModelAdmin):
     list_display = ('id', 'title')
     list_filter = ('id', 'title')
+
+
+@admin.register(Assortment)
+class AssortimentAdmin(admin.ModelAdmin):
+    list_display = ('id', 'title', 'description')
+
+
