@@ -1,4 +1,5 @@
 from django.db import models
+from ckeditor.fields import RichTextField
 
 # Create your models here.
 class About(models.Model):
@@ -45,3 +46,18 @@ class AboutInline(models.Model):
         verbose_name = 'О нас'
         verbose_name_plural = 'О нас'
         
+    
+# class Recipe(models.Model):
+#     image = models.ImageField(
+#         upload_to='recipe/',
+#         verbose_name='Фото рецепта'
+#     )
+#     title = models.CharField(
+#         max_length=255,
+#         verbose_name='Название'
+#     )
+#     description = RichTextField(
+#         verbose_name='Описание',
+#         blank=True, null=True
+#     )
+    
