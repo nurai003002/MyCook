@@ -46,18 +46,47 @@ class AboutInline(models.Model):
         verbose_name = 'О нас'
         verbose_name_plural = 'О нас'
         
+class RecipeCategory(models.Model):
+    title = models.CharField(
+        max_length=255,
+        verbose_name='Название категория',
+        blank=True, null=True
+    )
     
-# class Recipe(models.Model):
-#     image = models.ImageField(
-#         upload_to='recipe/',
-#         verbose_name='Фото рецепта'
-#     )
-#     title = models.CharField(
-#         max_length=255,
-#         verbose_name='Название'
-#     )
-#     description = RichTextField(
-#         verbose_name='Описание',
-#         blank=True, null=True
-#     )
+    def __str__(self):
+        return self.title
     
+    class Meta:
+        verbose_name = 'Категория (рецепты)'
+        verbose_name_plural = 'Категории (рецепты)'
+    
+class Recipe(models.Model):
+    category = models.ForeignKey(
+        RecipeCategory, on_delete=models.CASCADE,
+        related_name='recipe_category',
+        blank=True, null=True
+    )
+    image = models.ImageField(
+        upload_to='recipe/',
+        verbose_name='Фото рецепта'
+    )
+    title = models.CharField(
+        max_length=255,
+        verbose_name='Название'
+    )
+    description = RichTextField(
+        verbose_name='Описание',
+        blank=True, null=True
+    )
+    video_url = models.URLField(
+        verbose_name='Видео рецепта',
+        blank=True, null=True
+    )
+    
+    def __str__(self):
+        return self.title
+    
+    class Meta:
+        verbose_name = "Рецепт"
+        verbose_name_plural = 'Рецепты'
+        

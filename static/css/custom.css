@@ -2433,7 +2433,7 @@ header.main-header .header-sticky.active{
 
 .page-header{
 	position: relative;
-	background: url(https://kartinki.pics/uploads/posts/2021-04/1617282933_23-p-fon-dlya-bannera-23.jpg);
+	background: url({{banner.image.url}});
     background-repeat: no-repeat;
 	background-position: center center;
 	background-size: cover;
