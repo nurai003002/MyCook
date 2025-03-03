@@ -90,3 +90,23 @@ class Recipe(models.Model):
         verbose_name = "Рецепт"
         verbose_name_plural = 'Рецепты'
         
+class Guarantee(models.Model):
+    delivery_title = RichTextField(
+        verbose_name='Информация об доставке',
+        blank=True, null=True
+    )
+    guarantee = RichTextField(
+        verbose_name='Информация об горантии',
+        blank=True, null=True
+    )
+    props = RichTextField(
+        verbose_name='Информация об реквизитах',
+        blank=True, null=True
+    )
+    
+    def __str__(self):
+        return self.delivery_title
+    
+    class Meta:
+        verbose_name = 'Гарантия'
+        verbose_name_plural = 'Гарантии'

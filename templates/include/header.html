@@ -21,14 +21,10 @@
                             <li class="nav-item"><a class="nav-link" href="{% url 'index' %}">Главная</a></li>
                             <li class="nav-item"><a class="nav-link" href="about.html">О нас</a>
                             <li class="nav-item"><a class="nav-link" href="{% url 'video_recipes' %}">Рецепты</a></li>
-                            <li class="nav-item submenu"><a class="nav-link" href="service.html">Услуги</a>
-                                <ul>                                        
-                                    <li class="nav-item"><a class="nav-link" href="service-single.html">Доставка</a></li>
-                                </ul>
-                            </li>
+                            
                             <li class="nav-item submenu"><a class="nav-link" href="#">Страницы</a>
                                 <ul>                                        
-                                    <li class="nav-item"><a class="nav-link" href="project-single.html">Гарантия</a></li>
+                                    <li class="nav-item"><a class="nav-link" href="{% url 'guarentee' %}">Гарантия</a></li>
                                     <li class="nav-item"><a class="nav-link" href="service-single.html">Акции</a></li>
                                     <li class="nav-item"><a class="nav-link" href="project-single.html">Вопросы</a></li>
                                 </ul>
@@ -38,8 +34,7 @@
                     </div>
                     <!-- Header Btn Start -->
                     <div class="header-btn d-inline-flex">
-                        <a href="#" class="btn-login">Войти</a>
-                        <a href="#" class="btn-default btn-signup">Регистрация</a>
+                        <a href="{% url 'guarentee' %}" class="btn-default btn-signup">Доставка</a>
                     </div>
                     <!-- Header Btn End -->
                 </div>

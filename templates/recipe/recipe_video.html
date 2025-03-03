@@ -29,14 +29,21 @@
         <div class="row align-items-center">
             <div class="col-lg-8">
                     <!-- Post Tags Start -->
+                     <style>
+                        .tag-links {
+                            margin-left: 130px;
+                        }
+                     </style>
                     <div class="post-tags wow fadeInUp" data-wow-delay="0.5s">
                         <span class="tag-links">
                             Категории:
-                            <a href="#">Business</a>
-                            <a href="#">Startup</a>
-                            <a href="#">CorporateFinance</a>
+                            <a href="{% url 'video_recipes' %}">Все</a> <!-- Ссылка для сброса фильтра -->
+                            {% for category in categories %}
+                                <a href="{% url 'video_recipes' %}?category_id={{ category.id }}">{{ category.title }}</a>
+                            {% endfor %}
                         </span>
                     </div>
+                    
                     <!-- Post Tags End -->
             </div>
         </div>
