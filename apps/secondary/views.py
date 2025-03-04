@@ -1,7 +1,7 @@
 from django.shortcuts import render
 
 from apps.secondary import models
-from apps.cms.models import RecipeBanner
+from apps.cms.models import RecipeBanner, Faqs
 # Create your views here.
 
 def video_recipes(request):
@@ -31,5 +31,11 @@ def recipe_detail(request, id):
 def guarentee(request):
     # setting = Setting.objects.latest('id')
     banner = RecipeBanner.objects.latest('id')
-    guarentee = models.Guarantee.objects.latest('id')
-    return render(request, 'secondary/delivery.html', locals())
+    guarentees = models.Guarantee.objects.latest('id')
+    return render(request, 'secondary/guarentee.html', locals())
+
+def faqs(request):
+    # setting = Setting.objects.latest('id')
+    faqs = Faqs.objects.latest('id')
+    banner = RecipeBanner.objects.latest('id')
+    return render(request, 'secondary/faqs.html', locals())

@@ -1,0 +1,95 @@
+{% extends 'include/homepage.html' %}
+{% load static %}
+{% block content %}
+    {% include 'include/header.html' %} 
+    <!-- Page Header Start -->
+    <div class="page-header" style="background-image: url('{{ banner.image.url }}');">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <!-- Page Header Box Start -->
+					<div class="page-header-box">
+						<h1 class="text-anime-style-3" data-cursor="-opaque">Гарантии </h1>
+						<nav class="wow fadeInUp">
+							<ol class="breadcrumb">
+								<li class="breadcrumb-item"><a href="{% url 'index' %}">Главная</a></li>
+								<li class="breadcrumb-item active" aria-current="page">Гарантии</li>
+							</ol>
+						</nav>
+					</div>
+					<!-- Page Header Box End -->
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Page Header End -->
+
+    <!-- Page Company History Start -->
+    <div class="page-company-history">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <!-- Company History Box Start -->
+                    <div class="company-history-box">
+                        <!-- Company History Item Start -->
+                        <div class="company-history-item">
+                            <div class="company-history-info">
+                                
+                                <div class="company-history-content">
+                                    <h3 class="wow fadeInUp" data-wow-delay="0.25s">{{guarentees.delivery_title}}</h3>
+                                    <p class="wow fadeInUp" data-wow-delay="0.5s">{{guarentees.description_delivery|safe}}</p>
+                                </div>
+                            </div>
+
+                            <div class="company-history-image">
+                                <figure class="image-anime reveal">
+                                    <img src="{{guarentees.delivery_image.url}}" alt="">
+                                </figure>
+                            </div>
+                        </div>
+                        <!-- Company History Item End -->
+
+                        <!-- Company History Item Start -->
+                        <div class="company-history-item">
+                            <div class="company-history-info">
+                                <div class="company-history-content">
+                                    <h3 class="wow fadeInUp" data-wow-delay="0.25s">{{guarentees.guarantee}}</h3>
+                                    <p class="wow fadeInUp" data-wow-delay="0.5s">{{guarentees.guarantee_description|safe}}</p>
+                                </div>
+                            </div>
+                            <div class="company-history-image">
+                                <figure class="image-anime reveal">
+                                    <img src="{{guarentees.guarantee_image.url}}" alt="">
+                                </figure>
+                            </div>
+                        </div>
+                        <!-- Company History Item End -->
+
+                        <!-- Company History Item Start -->
+                        <div class="company-history-item">
+                            <div class="company-history-info">
+                                <div class="company-history-content">
+                                    <h3 class="wow fadeInUp" data-wow-delay="0.25s">{{guarentees.props}}</h3>
+                                    <p class="wow fadeInUp" data-wow-delay="0.5s">{{guarentees.props_description|safe}}</p>
+                                </div>
+                            </div>
+
+                            <div class="company-history-image">
+                                <figure class="image-anime reveal">
+                                    <img src="{{guarentees.props_image.url}}" alt="">
+                                </figure>
+                            </div>
+                        </div>
+                        <!-- Company History Item End -->
+                    </div>
+                    <!-- Company History Box End -->
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Page Company History End -->
+
+    <!-- Footer Start -->
+    {% include 'include/footer.html' %}
+    <!-- Footer End -->
+{% endblock %}

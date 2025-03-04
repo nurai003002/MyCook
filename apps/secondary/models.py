@@ -38,6 +38,11 @@ class AboutInline(models.Model):
         max_length=600,
         verbose_name='Описание'
     )
+    image = models.ImageField(
+        upload_to='guarentee',
+        verbose_name='Фотография',
+        blank=True, null=True
+    )
     
     def __str__(self):
         return self.title
@@ -91,22 +96,52 @@ class Recipe(models.Model):
         verbose_name_plural = 'Рецепты'
         
 class Guarantee(models.Model):
-    delivery_title = RichTextField(
+    delivery_title = models.CharField(
+        max_length=255,
+        verbose_name='Заголовок доставки',
+        blank=True, null=True
+    )
+    description_delivery = RichTextField(
         verbose_name='Информация об доставке',
         blank=True, null=True
     )
-    guarantee = RichTextField(
+    delivery_image = models.ImageField(
+        upload_to='guarentee',
+        verbose_name='Фотография (доставке)',
+        blank=True, null=True
+    )
+    guarantee = models.CharField(
+        max_length=255,
+        verbose_name='Заголовок горантии',
+        blank=True, null=True
+    )
+    guarantee_description = RichTextField(
         verbose_name='Информация об горантии',
         blank=True, null=True
     )
-    props = RichTextField(
+    guarantee_image = models.ImageField(
+        upload_to='guarentee',
+        verbose_name='Фотография (горантии)',
+        blank=True, null=True
+    )
+    props = models.CharField(
+        max_length=255,
         verbose_name='Информация об реквизитах',
         blank=True, null=True
     )
-    
+    props_description = RichTextField(
+        verbose_name='Информация об реквизитах',
+        blank=True, null=True
+    )
+    props_image = models.ImageField(
+        upload_to='guarentee',
+        verbose_name='Фотография (реквизиты)',
+        blank=True, null=True
+    )
     def __str__(self):
         return self.delivery_title
     
     class Meta:
         verbose_name = 'Гарантия'
         verbose_name_plural = 'Гарантии'
+        
