@@ -1,0 +1,68 @@
+{% extends 'include/homepage.html' %}
+{% load static %}
+{% block content %}
+    {% include 'include/header.html' %} 
+    <!-- Page Header Start -->
+    <div class="page-header" style="background-image: url('{{ banner.image.url }}');">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <!-- Page Header Box Start -->
+					<div class="page-header-box">
+						<h1 class="text-anime-style-3" data-cursor="-opaque">Частые вопросы </h1>
+						<nav class="wow fadeInUp">
+							<ol class="breadcrumb">
+								<li class="breadcrumb-item"><a href="{% url 'index' %}">Главная</a></li>
+								<li class="breadcrumb-item active" aria-current="page">Faqs</li>
+							</ol>
+						</nav>
+					</div>
+					<!-- Page Header Box End -->
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Page Header End -->
+
+    <!-- Page FAQs Section Start -->
+    <div class="page-faqs">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <!-- FAQs Section Start -->
+                    <div class="faq-section">
+                        <!-- Section Title Start -->
+                        <div class="section-title">
+                            <h3 class="wow fadeInUp">{{faqs.main_title}}</h3>
+                            <h2 class="text-anime-style-3" data-cursor="-opaque">{{faqs.title}}</h2>
+                        </div>
+                        <!-- Section Title Start -->
+
+                        <!-- Our FAQs Box Start -->
+                        <div class="our-faqs-box">
+                            <!-- FAQs Item Start -->
+                            {% for faq in faqs.faqs_inline.all %}
+                            <div class="faqs-item wow fadeInUp">
+                                <!-- FAQs Item Content Start -->
+                                <div class="faqs-item-content">
+                                    <h3>{{faq.question}}</h3>
+                                    <p>{{faq.answer}}</p>
+                                </div>
+                                <!-- FAQs Item Content End -->
+                            </div>
+                            {% endfor %}
+                            <!-- FAQs Item End -->
+                        </div>
+                        <!-- Our FAQs Box End -->
+                    </div>
+                    <!-- FAQs Section End -->
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Page FAQs Section End -->
+
+    <!-- Footer Start -->
+    {% include 'include/footer.html' %}
+    <!-- Footer End -->
+{% endblock %}
