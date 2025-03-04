@@ -17,4 +17,6 @@ def recipe_detail(request, id):
     get_recipe = models.Recipe.objects.get(id=id)
     return render(request, 'recipe/recipe_detail.html', locals())
 
+def details(request):
+    return render(request, 'base/details.html', locals() )
 

@@ -112,3 +112,50 @@ class Assortment(models.Model):
         verbose_name = 'Ассортимент'
         verbose_name_plural = 'Ассортименты'
 
+class Details(models.Model):
+    image = models.ImageField(
+        verbose_name='Изображение', 
+        upload_to='assortiment/'
+    )
+    description = RichTextField(
+        verbose_name='Описание товара',
+        blank=True, null=True
+    )
+    title = models.CharField(
+        max_length=500,
+        verbose_name='Заголовок',
+        blank=True, null=True
+    )
+    description_2 = RichTextField(
+        verbose_name='Описание товара 2',
+        blank=True, null=True
+    )
+
+    def __str__(self):
+        return self.title
+    
+    class Meta:
+        verbose_name = 'Подробнее'
+        verbose_name_plural = 'Подробнее'
+
+class DetailsInline(models.Model):
+    number = models.TextField(
+        verbose_name= 'Номер(порядка)'
+    )
+    title = models.ForeignKey(
+        Details,on_delete=models.CASCADE,
+        related_name='details_inline',
+        verbose_name='Зоголовок',
+        blank=True, null=True
+    )
+    description = RichTextField(
+        verbose_name='Описание',
+        blank=True, null=True
+    )
+    
+    def __str__(self):
+        return self.number
+    
+    class Meta:
+        verbose_name = 'Подробнее'
+        verbose_name_plural = 'Подробнее'
