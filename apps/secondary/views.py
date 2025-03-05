@@ -28,6 +28,8 @@ def recipe_detail(request, id):
     return render(request, 'recipe/recipe_detail.html', locals())
 
 def details(request):
+    details = models.Details.objects.latest('id')
+    details_inline = models.DetailsInline.objects.all()
     return render(request, 'base/details.html', locals() )
 
 def guarentee(request):

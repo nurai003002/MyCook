@@ -6,6 +6,4 @@ from apps.secondary import models
 def index(request):
     about = models.About.objects.latest('id')
     assortiment = models.Assortment.objects.all()
-    details = models.Details.objects.latest('id')
-    details_inline = models.DetailsInline.objects.all()
     return render(request, 'base/index.html', locals())

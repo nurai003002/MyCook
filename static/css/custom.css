@@ -6933,4 +6933,4 @@ header.main-header .header-sticky.active{
 .visible {
     transform: translateY(0); /* Показываем заголовок */
     transition: transform 0.3s ease;
-}
+}	

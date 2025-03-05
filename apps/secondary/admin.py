@@ -34,7 +34,7 @@ class DetailsInlineTabularInline(admin.TabularInline):
 
 @admin.register(Details)
 class DetailsAdmin(admin.ModelAdmin):
-    list_display = ('id', 'title', 'description')
+    list_display = ('id', 'title', 'image')
     list_filter = ('id', 'title')
     inlines = (DetailsInlineTabularInline, )
 
