@@ -1,29 +1,44 @@
 from django.contrib import admin
 
-from apps.secondary.models import About, AboutInline, Recipe, RecipeCategory, Guarantee
+from apps.secondary import models
 # Register your models here.
 
 class AboutInlineTabularInline(admin.TabularInline):
-    model = AboutInline
+    model = models.AboutInline
     extra = 1
 
-@admin.register(About)
+@admin.register(models.About)
 class AboutAdmin(admin.ModelAdmin):
     list_display = ('id', 'title', 'description')
     list_filter = ('id', 'title')
     inlines = (AboutInlineTabularInline, )
     
-@admin.register(Recipe)
+@admin.register(models.Recipe)
 class RecipeAdmin(admin.ModelAdmin):
     list_display = ('id', 'title')
     list_filter = ('id', 'title')
     
-@admin.register(RecipeCategory)
+@admin.register(models.RecipeCategory)
 class RecipeCategoryAdmin(admin.ModelAdmin):
     list_display = ('id', 'title')
     list_filter = ('id', 'title')
     
-@admin.register(Guarantee)
+@admin.register(models.Guarantee)
 class GuaranteeAdmin(admin.ModelAdmin):
     list_display = ('id', 'delivery_title')
     list_filter = ('id', 'delivery_title')
+    
+@admin.register(models.Assortment)
+class AssortmentAdmin(admin.ModelAdmin):
+    list_display = ('id', 'title')
+    list_filter = ('id', 'title')
+
+@admin.register(models.OwnMyCookCategory)
+class OwnMyCookCategoryAdmin(admin.ModelAdmin):
+    list_display = ('id', 'title')
+    list_filter = ('id', 'title')
+
+@admin.register(models.OwnMyCook)
+class OwnMyCookAdmin(admin.ModelAdmin):
+    list_display = ('id', 'title')
+    list_filter = ('id', 'title')

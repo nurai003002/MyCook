@@ -6,4 +6,7 @@ from apps.settings.models import Setting
 def index(request):
     setting = Setting.objects.latest('id')
     about = models.About.objects.latest('id')
+    assortment = models.Assortment.objects.all()
+    category = models.OwnMyCookCategory.objects.all()
+    own_mycook = models.OwnMyCook.objects.all()
     return render(request, 'base/index.html', locals())

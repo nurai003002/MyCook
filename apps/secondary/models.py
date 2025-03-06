@@ -145,3 +145,74 @@ class Guarantee(models.Model):
         verbose_name = 'Гарантия'
         verbose_name_plural = 'Гарантии'
         
+class Assortment(models.Model):
+    image = models.ImageField(
+        verbose_name='Изображение', 
+        upload_to='assortiment/'
+    )
+    title = models.CharField(
+        max_length=500,
+        verbose_name='Заголовок',
+        blank=True, null=True
+    )
+    description = RichTextField(
+        verbose_name='Описание',
+        blank=True, null=True
+    )
+
+    def __str__(self):
+        return self.title
+    
+    class Meta:
+        verbose_name = 'Ассортимент'
+        verbose_name_plural = 'Ассортименты'
+        
+class OwnMyCookCategory(models.Model):
+    title = models.CharField(
+        max_length=255,
+        verbose_name='Заголовок' 
+    )
+    
+    def __str__(self):
+        return self.title
+    
+    class Meta:
+        verbose_name = 'Сам mycook категория'
+        verbose_name_plural = 'Сам mycook категория'
+        
+class OwnMyCook(models.Model):
+    category = models.ForeignKey(
+        OwnMyCookCategory, on_delete=models.CASCADE,
+        related_name='own_title'
+    )
+    title = models.CharField(
+        max_length=255,
+        verbose_name='Заголовок' 
+    )
+    description = models.CharField(
+        max_length=600,
+        verbose_name='Описание'
+    )
+    image = models.ImageField(
+        upload_to='image/',
+        verbose_name='Фотграфия'
+    )
+    advantage_1 = models.CharField(
+        max_length=255,
+        verbose_name='преимущество 1' 
+    )
+    advantage_2 = models.CharField(
+        max_length=255,
+        verbose_name='преимущество 2' 
+    )
+    advantage_3 = models.CharField(
+        max_length=255,
+        verbose_name='преимущество 3' 
+    )
+    
+    def __str__(self):
+        return self.title
+    
+    class Meta:
+        verbose_name = 'Сам mycook'
+    
