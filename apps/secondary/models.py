@@ -216,3 +216,44 @@ class OwnMyCook(models.Model):
     class Meta:
         verbose_name = 'Сам mycook'
     
+class WhyTheyChooseUs(models.Model):
+    title = models.CharField(
+        max_length=255,
+        verbose_name='Заголовок'
+    )
+    description = models.CharField(
+        max_length=700,
+        verbose_name='Описание'
+    )
+    
+    def __str__(self):
+        return self.title
+    
+    class Meta:
+        verbose_name = 'Почему выбирают нас?'
+        verbose_name_plural = 'Почему выбирают нас?'
+
+class WhyTheyChooseUsInline(models.Model):
+    reason = models.ForeignKey(
+        WhyTheyChooseUs, on_delete=models.CASCADE,
+        related_name='reason_inline'
+    )
+    title = models.CharField(
+        max_length=255,
+        verbose_name='Заголовок'
+    )
+    description = models.CharField(
+        max_length=700,
+        verbose_name='Описание'
+    )
+    image = models.ImageField(
+        upload_to='why/',
+        verbose_name='Фотография'
+    )
+    
+    def __str__(self):
+        return self.title
+    
+    class Meta:
+        verbose_name = 'Почему выбирают нас?'
+        verbose_name_plural = 'Почему выбирают нас?'

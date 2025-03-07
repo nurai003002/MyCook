@@ -7,6 +7,10 @@ class AboutInlineTabularInline(admin.TabularInline):
     model = models.AboutInline
     extra = 1
 
+class WhyTheyChooseUsInlineTabular(admin.TabularInline):
+    model = models.WhyTheyChooseUsInline
+    extra = 1
+    
 @admin.register(models.About)
 class AboutAdmin(admin.ModelAdmin):
     list_display = ('id', 'title', 'description')
@@ -42,3 +46,9 @@ class OwnMyCookCategoryAdmin(admin.ModelAdmin):
 class OwnMyCookAdmin(admin.ModelAdmin):
     list_display = ('id', 'title')
     list_filter = ('id', 'title')
+    
+@admin.register(models.WhyTheyChooseUs)
+class WhyTheyChooseUsAdmin(admin.ModelAdmin):
+    list_display = ('id', 'title')
+    list_filter = ('id', 'title')
+    inlines = (WhyTheyChooseUsInlineTabular, )

@@ -1,5 +1,5 @@
 from django.db import models
-
+from ckeditor.fields import RichTextField
 # Create your models here.
 
 class RecipeBanner(models.Model):
@@ -56,3 +56,40 @@ class FAQsInline(models.Model):
     class Meta:
         verbose_name = 'Часто задаваемые вопрос'
         verbose_name_plural = 'Часто задаваемые вопросы'
+        
+class ProductBanner(models.Model):
+    image = models.ImageField(
+        upload_to='main_image',
+        verbose_name='Фото'
+    )
+    title = models.CharField(
+        max_length=255,
+        verbose_name='Заголовок'
+    )
+    description = RichTextField(
+        verbose_name='Описание',
+        blank=True, null=True
+    )
+    button_1 = models.CharField(
+        max_length=255,
+        verbose_name='Название для кнопки'
+    )
+    button_1_url = models.CharField(
+        max_length=255,
+        verbose_name='URL для кнопки'
+    )
+    button_2 = models.CharField(
+        max_length=255,
+        verbose_name='Название для кнопки'
+    )
+    button_2_url = models.CharField(
+        max_length=255,
+        verbose_name='URL для кнопки'
+    )
+    
+    def __str__(self):
+        return self.title
+    
+    class Meta:
+        verbose_name = 'Главный баннер'
+        verbose_name_plural = 'Главный баннер'

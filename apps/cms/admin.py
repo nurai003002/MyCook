@@ -1,6 +1,6 @@
 from django.contrib import admin
 
-from apps.cms.models import RecipeBanner, Faqs, FAQsInline
+from apps.cms.models import RecipeBanner, Faqs, FAQsInline, ProductBanner
 
 # Register your models here.
 class FAQsInlineTabular(admin.TabularInline):
@@ -17,3 +17,8 @@ class FaqsAdmin(admin.ModelAdmin):
     list_display = ('id', )
     list_filter = ('id', )
     inlines = (FAQsInlineTabular, )
+    
+@admin.register(ProductBanner)
+class ProductBannerAdmin(admin.ModelAdmin):
+    list_display = ('id', 'title')
+    list_filter = ('id', 'title')
