@@ -93,3 +93,23 @@ class ProductBanner(models.Model):
     class Meta:
         verbose_name = 'Главный баннер'
         verbose_name_plural = 'Главный баннер'
+
+class Review(models.Model):
+    text = models.CharField(
+        max_length=600,
+        verbose_name='Отзыв',
+        blank=True, null=True
+    )
+    created_at = models.DateTimeField(
+        auto_now_add=True,
+        verbose_name='Дата создания',
+        blank=True, null=True
+    )
+    
+    def __str__(self):
+        return self.text
+    
+    class Meta:
+        verbose_name = 'Отзыв'
+        verbose_name_plural = 'Отзывы'
+        
