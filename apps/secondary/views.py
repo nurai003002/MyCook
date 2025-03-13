@@ -41,3 +41,15 @@ def faqs(request):
     faqs = Faqs.objects.latest('id')
     banner = RecipeBanner.objects.latest('id')
     return render(request, 'secondary/faqs.html', locals())
+
+def tasting(request):
+    setting = Setting.objects.latest('id')
+    banner = RecipeBanner.objects.latest('id')
+    tasting = models.Tasting.objects.all()
+    return render(request, 'tasting/tasting.html', locals())
+
+def tasting_detail(request, id):
+    setting = Setting.objects.latest('id')
+    banner = RecipeBanner.objects.latest('id')
+    get_tasting = models.Tasting.objects.get(id=id)
+    return render(request, 'tasting/tasting-single.html', locals())                      

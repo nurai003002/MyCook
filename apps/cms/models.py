@@ -124,3 +124,41 @@ class UrlWhatsapp(models.Model):
     class Meta:
         verbose_name = "Ссылка для кнопки доставка"
         verbose_name_plural = 'Ссылка для кнопки доставка'
+        
+class WhyChooseUs(models.Model):
+    title = models.CharField(
+        max_length=255,
+        verbose_name='Заголовок'
+    )
+    description = models.CharField(
+        max_length=400,
+        verbose_name='Описание'
+    )
+    years = models.IntegerField(
+        verbose_name='кол-во стажа'
+    )
+    sails_mycook = models.IntegerField(
+        verbose_name='кол-во проданных машин'
+    )
+    client = models.IntegerField(
+        verbose_name='кол-во клиентов'
+    )
+    reason_1 = RichTextField(
+        verbose_name='Причина 1',
+        blank=True, null=True
+    )
+    reason_2 = RichTextField(
+        verbose_name='Причина 2',
+        blank=True, null=True
+    )
+    reason_3 = RichTextField(
+        verbose_name='Причина 3',
+        blank=True, null=True
+    )
+    
+    def __str__(self):
+        return self.title
+    
+    class Meta:
+        verbose_name = 'Причины выбрать нас'
+        verbose_name_plural = 'Причины выбрать нас'

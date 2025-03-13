@@ -1,0 +1,82 @@
+{% extends 'include/homepage.html' %}
+{% load static %}
+{% block content %}
+    {% include 'include/header.html' %} 
+
+    <!-- Page Header Start -->
+    <div class="page-header" style="background-image: url('{{ banner.image.url }}');">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <!-- Page Header Box Start -->
+					<div class="page-header-box">
+						<h1 class="text-anime-style-3" data-cursor="-opaque">Дегустации </h1>
+						<nav class="wow fadeInUp">
+							<ol class="breadcrumb">
+								<li class="breadcrumb-item"><a href="{% url 'index' %}">Главная</a></li>
+								<li class="breadcrumb-item active" aria-current="page">Дегустации</li>
+                                
+							</ol>
+						</nav>
+					</div>
+					<!-- Page Header Box End -->
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Page Header End -->
+
+    <!-- Page Blog Start -->
+    <div class="page-blog">
+        <div class="container">
+            <div class="row">
+                {% for tasting in tasting %}
+                <div class="col-lg-4 col-md-6">
+                    <!-- Blog Item Start -->
+                    <div class="blog-item wow fadeInUp">
+                        <!-- Blog Featured Image Start -->
+                        <div class="blog-featured-image">
+                            <a href="#" class="image-anime" data-cursor-text="View">
+                                <figure>
+                                    <img src="{{tasting.image.url}}" alt="">
+                                </figure>
+                            </a>
+                        </div>
+                        <!-- Blog Featured Image End -->
+
+                        <!-- Blog Item Body Start -->
+                        <div class="blog-item-body">
+                            <!-- Blog Meta Start -->
+                            <div class="blog-meta">
+                                <ul>
+                                    <li><a>{{tasting.created_at}}</a></li>
+                                </ul>
+                            </div>
+                            <!-- Blog Meta End -->
+
+                            <!-- Blog Content Start -->
+                            <div class="blog-content">
+                                <h3><a href="{% url 'tasting_detail' tasting.id %}">{{tasting.title}}</a></h3>
+                            </div>
+                            <!-- Blog Content End -->
+
+                            <!-- Blog Read More Btn Start -->
+                            <div class="blog-btn">
+                                <a href="{% url 'tasting_detail' tasting.id %}" class="readmore-btn"><img src="{% static 'images/icon-arrow.svg' %}" alt=""></a>
+                            </div>
+                            <!-- Blog Read More Btn End -->
+                        </div>
+                        <!-- Blog Item Body End -->
+                    </div>
+                    <!-- Blog Item End -->
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+    <!-- Page Blog End -->
+
+    <!-- Footer Start -->
+    {% include 'include/footer.html' %}
+    <!-- Footer End -->
+{% endblock %}

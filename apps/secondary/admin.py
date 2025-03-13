@@ -57,3 +57,8 @@ class WhyTheyChooseUsAdmin(admin.ModelAdmin):
 class TeamAdmin(admin.ModelAdmin):
     list_display = ('id', 'name')
     list_filter = ('id', 'name')
+    
+@admin.register(models.Tasting)
+class TastingAdmin(admin.ModelAdmin):
+    list_display = ('id', 'title')
+    list_filter = ('id', 'title')

@@ -283,3 +283,32 @@ class Team(models.Model):
         verbose_name = 'Наша команда'
         verbose_name_plural = 'Наша команда'
         
+        
+class Tasting(models.Model):
+    image = models.ImageField(
+        upload_to='tasting/',
+        verbose_name="Фотография"
+    )
+    title = models.CharField(
+        max_length=255,
+        verbose_name='Заголовок'
+    )
+    description = RichTextField(
+        verbose_name='Описание',
+        blank=True, null=True
+    )
+    video = models.FileField(
+        upload_to="tasting_videos/",
+        verbose_name='Видео отчет'
+    )
+    created_at = models.DateField(
+        auto_now_add=True,
+        verbose_name='Дата публикации'
+    )
+    
+    def __str__(self):
+        return self.title
+    
+    class Meta:
+        verbose_name = 'Дегустация'
+        verbose_name_plural = 'Дегустация'

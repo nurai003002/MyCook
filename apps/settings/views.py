@@ -4,7 +4,7 @@ from telebot import TeleBot
 from apps.secondary import models
 from apps.telegram_bot.views import get_text
 from apps.settings.models import Setting, Contact
-from apps.cms.models import ProductBanner, Review, RecipeBanner, UrlWhatsapp
+from apps.cms.models import ProductBanner, Review, RecipeBanner, UrlWhatsapp, WhyChooseUs
 # Create your views here.
 
 def index(request):
@@ -18,6 +18,7 @@ def index(request):
     reasons = models.WhyTheyChooseUs.objects.latest('id')
     banner_main = ProductBanner.objects.latest('id')
     url = UrlWhatsapp.objects.latest('id')
+    tasting = models.Tasting.objects.all()[:2]
     return render(request, 'base/index.html', locals())
 
 def about(request):
@@ -25,6 +26,7 @@ def about(request):
     about = models.About.objects.latest('id')
     banner = RecipeBanner.objects.latest('id')
     team = models.Team.objects.all()
+    reasons = WhyChooseUs.objects.latest('id')
     return render(request, 'base/about.html', locals())
 
 def contact(request):
