@@ -113,3 +113,14 @@ class Review(models.Model):
         verbose_name = 'Отзыв'
         verbose_name_plural = 'Отзывы'
         
+class UrlWhatsapp(models.Model):
+    url = models.URLField(
+        verbose_name='URL для вотс (доставка)'
+    )
+    map = models.URLField(
+        verbose_name='URL для контакт (карта)'
+    )
+    
+    class Meta:
+        verbose_name = "Ссылка для кнопки доставка"
+        verbose_name_plural = 'Ссылка для кнопки доставка'

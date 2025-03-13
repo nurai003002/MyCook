@@ -1,0 +1,120 @@
+{% extends 'include/homepage.html' %}
+{% load static %}
+{% block content %}
+	{% include 'include/header.html' %}
+    <!-- Page Header Start -->
+    <div class="page-header" style="background-image: url('{{ banner.image.url }}');">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <!-- Page Header Box Start -->
+					<div class="page-header-box">
+						<h1 class="text-anime-style-3" data-cursor="-opaque">О нас</h1>
+						<nav class="wow fadeInUp">
+							<ol class="breadcrumb">
+							</ol>
+						</nav>
+					</div>
+					<!-- Page Header Box End -->
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Page Header End -->
+
+    <!-- About Us Section Start -->
+	<div class="about-us bg-section">
+        <div class="container">
+            <div class="row section-row align-items-center">
+                <div class="col-lg-7">
+                    <!-- Section Title Start -->
+                    <div class="section-title">
+                        <h3 class="wow fadeInUp">о нас</h3>
+                        <h2 class="text-anime-style-3" data-cursor="-opaque">{{about.title}}</h2>
+                    </div>
+                    <!-- Section Title End -->
+                </div>
+
+                <div class="col-lg-5">
+                    <!-- Section Title Content Start -->
+                    <div class="section-title-content wow fadeInUp" data-wow-delay="0.25s">
+                        <p>{{about.description}}</p>
+                    </div>
+                    <!-- Section Title Content End -->
+                </div>
+            </div>
+
+            <div class="row">
+                {% for about in about.about_inline.all %}
+                <div class="col-md-4">
+                    <!-- About Company Item Start -->
+                    <div class="about-company-item wow fadeInUp">
+                        <div class="icon-box">
+                            <img src="{% static 'images/icon-about-company-1.svg' %}" alt="">
+                        </div>
+                        <div class="about-company-content">
+                            <h3>{{about.title}}</h3>
+                            <p>{{about.description}}</p>
+                        </div>
+                    </div>
+                    <!-- About Company Item End -->
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+
+    </div>
+    <!-- About Us Section End -->
+    <!-- Our Team Section Start -->
+    <div class="our-team">
+        <div class="container">
+            <div class="row section-row align-items-center">
+                <div class="col-lg-7">
+                    <!-- Section Title Start -->
+                    <div class="section-title">
+                        <h3 class="wow fadeInUp">наша команда</h3>
+                        <h2 class="text-anime-style-3" data-cursor="-opaque">Познакомьтесь с нашей командой кулинарных экспертов!</h2>
+                    </div>
+                    <!-- Section Title End -->
+                </div>
+            </div>
+            
+            <div class="row">
+                {% for team in team %}
+                <div class="col-lg-4 col-md-6">
+                    <!-- Team Item Start -->
+                    <div class="team-item wow fadeInUp">
+                        <!-- team Image Start -->
+                        <div class="team-image">
+                            <a href="#" class="image-anime">
+                                <figure>
+                                    <img src="{{team.photo.url}}" alt="">
+                                </figure>
+                            </a>
+                        </div>
+                        <!-- team Image End -->
+
+                        <!-- team Social Icon Start -->
+                        <div class="team-social-list">
+                            <ul>
+                                <li><a href="{{team.instagram}}"><i class="fa-brands fa-instagram"></i></a></li>
+                            </ul>
+                        </div>
+                        <!-- team Social Icon End -->
+
+                        <!-- team Content Start -->
+                        <div class="team-content">
+                            <h3>{{team.name}}</h3>
+                            <p>{{team.position}}</p>
+                        </div>
+                        <!-- team Content End -->                        
+                    </div>
+                    <!-- Team Item Start -->
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+    {% include 'include/footer.html' %}
+    <!-- Footer End -->
+{% endblock %}

@@ -468,7 +468,7 @@
                 <div class="col-lg-6">
                     <!-- Section Button Start -->
                     <div class="section-btn wow fadeInUp" data-wow-delay="0.25s">
-                        <a href="#" class="btn-default">связаться</a>
+                        <a href="{% url 'contact' %}" class="btn-default">связаться</a>
                     </div>
                     <!-- Section Button End -->
                 </div>
@@ -479,51 +479,19 @@
                     <div class="testimonial-slider">
                         <div class="swiper">
                             <div class="swiper-wrapper">
+                                {% for review in review %}
                                 <!-- Testimonial Slide Start -->
                                 <div class="swiper-slide">
                                     <div class="testimonial-item">	
                                         <div class="testimonial-header">
                                             <div class="testimonial-content">
-                                                <p>"The team provided exceptional financial guidance tailored to my needs. Their expert advice helped me grow my investments while ensuring financial security for the future. I highly recommend their services for anyone seeking trusted, personalized financial solutions!"</p>									
+                                                <p>{{review.text}}</p>									
                                             </div>
-                                        </div>
-                                        <div class="testimonial-body">
-                                            <div class="author-image">
-                                                <figure class="image-anime">
-                                                    <img src="{% static 'images/author-1.jpg' %}" alt="">
-                                                </figure>
-                                            </div>            
-                                            <div class="author-content">
-                                                <h3>arlene mcCoy</h3>
-                                                <p>co. founder</p>
-                                            </div>
-                                        </div>													
+                                        </div>												
                                     </div>
                                 </div>
                                 <!-- Testimonial Slide End -->
-
-                                <!-- Testimonial Slide Start -->
-                                <div class="swiper-slide">
-                                    <div class="testimonial-item">	
-                                        <div class="testimonial-header">
-                                            <div class="testimonial-content">
-                                                <p>"The team provided exceptional financial guidance tailored to my needs. Their expert advice helped me grow my investments while ensuring financial security for the future. I highly recommend their services for anyone seeking trusted, personalized financial solutions!"</p>									
-                                            </div>
-                                        </div>
-                                        <div class="testimonial-body">
-                                            <div class="author-image">
-                                                <figure class="image-anime">
-                                                    <img src="{% static 'images/author-1.jpg' %}" alt="">
-                                                </figure>
-                                            </div>            
-                                            <div class="author-content">
-                                                <h3>arlene mcCoy</h3>
-                                                <p>co. founder</p>
-                                            </div>
-                                        </div>													
-                                    </div>
-                                </div>
-                                <!-- Testimonial Slide End -->
+                                {% endfor %}
                             </div>
                             <div class="testimonial-btn">
                                 <div class="testimonial-button-prev"></div>
@@ -539,7 +507,7 @@
                     <div class="testimonial-counter-box">
                         <!-- Testimonial Counter Item Start -->
                         <div class="testimonial-counter-item">
-                            <h2><span class="counter">12</span>k+</h2>
+                            <h2><span class="counter">{{review_count}}</span>k+</h2>
                             <p class="wow fadeInUp">
                                 положительных отзывов</p>
                         </div>
@@ -558,291 +526,6 @@
             </div>
         </div>
     </div>
-    <!-- Our Testimonial Section End -->
-
-    <!-- Our FAQs Section Start -->
-    <div class="our-faqs bg-section">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-12">
-                    <!-- FAQs Client Slider Start -->
-                    <div class="faqs-client-slider">
-                        <div class="swiper">
-                            <div class="swiper-wrapper">
-                                <!-- Client Slide Start -->
-                                <div class="swiper-slide">
-                                    <div class="client-logo">
-                                        <figure>
-                                            <img src="{% static 'images/faqs-client-logo-1.svg' %}" alt="">
-                                        </figure>
-                                    </div>
-                                </div>
-                                <!-- Client Slide End -->
-    
-                                <!-- Client Slide Start -->
-                                <div class="swiper-slide">
-                                    <div class="client-logo">
-                                        <figure>
-                                            <img src="{% static 'images/faqs-client-logo-2.svg' %}" alt="">
-                                        </figure>
-                                    </div>
-                                </div>
-                                <!-- Client Slide End -->
-    
-                                <!-- Client Slide Start -->
-                                <div class="swiper-slide">
-                                    <div class="client-logo">
-                                        <figure>
-                                            <img src="{% static 'images/faqs-client-logo-3.svg' %}" alt="">
-                                        </figure>
-                                    </div>
-                                </div>
-                                <!-- Client Slide End -->
-    
-                                <!-- Client Slide Start -->
-                                <div class="swiper-slide">
-                                    <div class="client-logo">
-                                        <figure>
-                                            <img src="{% static 'images/faqs-client-logo-4.svg' %}" alt="">
-                                        </figure>
-                                    </div>
-                                </div>
-                                <!-- Client Slide End -->
-    
-                                <!-- Client Slide Start -->
-                                <div class="swiper-slide">
-                                    <div class="client-logo">
-                                        <figure>
-                                            <img src="{% static 'images/faqs-client-logo-5.svg' %}" alt="">
-                                        </figure>
-                                    </div>
-                                </div>
-                                <!-- Client Slide End -->
-    
-                                <!-- Client Slide Start -->
-                                <div class="swiper-slide">
-                                    <div class="client-logo">
-                                        <figure>
-                                            <img src="{% static 'images/faqs-client-logo-1.svg' %}" alt="">
-                                        </figure>
-                                    </div>
-                                </div>
-                                <!-- Client Slide End -->
-                            </div>
-                        </div>
-                    </div>
-                    <!-- FAQs Client Slider End -->
-                </div>
-            </div>
-
-            <div class="row section-row align-items-center">
-                <div class="col-lg-7">
-                    <!-- Section Title Start -->
-                    <div class="section-title">
-                        <h3 class="wow fadeInUp">часто задаваемые вопросы</h3>
-                        <h2 class="text-anime-style-3" data-cursor="-opaque">Вопросы наших клиентов</h2>
-                    </div>
-                    <!-- Section Title End -->
-                </div>
-
-                <div class="col-lg-5">
-                    <!-- Section Button Start -->
-                    <div class="section-btn wow fadeInUp" data-wow-delay="0.25s">
-                        <a href="#" class="btn-default">contact now</a>
-                    </div>
-                    <!-- Section Button End -->
-                </div>
-            </div>
-
-            <div class="row">
-                <div class="col-lg-12">
-                    <!-- Our FAQs Box Start -->
-                    <div class="our-faqs-box">
-                        <!-- FAQs Item Start -->
-                        <div class="faqs-item wow fadeInUp">
-                            <!-- FAQs Item Content Start -->
-                            <div class="faqs-item-content">
-                                <h3>Как я могу начать сотрудничество с вами?
-                                    </h3>
-                                <p>Заполните заявку на сайте, и мы свяжемся с вами для обсуждения всех деталей.</p>
-                            </div>
-                            <!-- FAQs Item Content End -->
-                        </div>
-                        <!-- FAQs Item End -->
-
-                        <!-- FAQs Item Start -->
-                        <div class="faqs-item wow fadeInUp" data-wow-delay="0.2s">
-                            <!-- FAQs Item Content Start -->
-                            <div class="faqs-item-content">
-                                <h3>Какие услуги вы предоставляете?
-                                    </h3>
-                                <p>Мы предлагаем широкий спектр услуг, включая партнёрскую поддержку, поставки продукции и маркетинговые решения.</p>
-                            </div>
-                            <!-- FAQs Item Content End -->
-                        </div>
-                        <!-- FAQs Item End -->
-
-                        <!-- FAQs Item Start -->
-                        <div class="faqs-item wow fadeInUp" data-wow-delay="0.4s">
-                            <!-- FAQs Item Content Start -->
-                            <div class="faqs-item-content">
-                                <h3>Есть ли у вас минимальные требования для партнёров?
-                                   </h3>
-                                <p>Да, для каждого партнёра мы обсуждаем индивидуальные условия в зависимости от формата сотрудничества.</p>
-                            </div>
-                            <!-- FAQs Item Content End -->
-                        </div>
-                        <!-- FAQs Item End -->
-
-                        <!-- FAQs Item Start -->
-                        <div class="faqs-item wow fadeInUp" data-wow-delay="0.6s">
-                            <!-- FAQs Item Content Start -->
-                            <div class="faqs-item-content">
-                                <h3>Как быстро я получу обратную связь?
-                                    </h3>
-                                <p>Мы гарантируем ответ в течение 24 часов после получения вашего запроса.</p>
-                            </div>
-                            <!-- FAQs Item Content End -->
-                        </div>
-                        <!-- FAQs Item End -->
-
-                        <!-- FAQs Item Start -->
-                        <div class="faqs-item wow fadeInUp" data-wow-delay="0.8s">
-                            <!-- FAQs Item Content Start -->
-                            <div class="faqs-item-content">
-                                <h3>Можно ли вернуть товар, если он не подошёл?
-                                    </h3>
-                                <p>Да, у нас есть гибкая политика возврата, детали можно уточнить у менеджера.</p>
-                            </div>
-                            <!-- FAQs Item Content End -->
-                        </div>
-                        <!-- FAQs Item End -->
-
-                        <!-- FAQs Item Start -->
-                        <div class="faqs-item wow fadeInUp" data-wow-delay="1s">
-                            <!-- FAQs Item Content Start -->
-                            <div class="faqs-item-content">
-                                <h3>Где можно узнать больше о вашей компании?
-                                   </h3>
-                                <p>Вы можете посетить наш раздел "О нас" на сайте или связаться с нами напрямую.</p>
-                            </div>
-                            <!-- FAQs Item Content End -->
-                        </div>
-                        <!-- FAQs Item End -->
-                    </div>
-                    <!-- Our FAQs Box End -->
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- Our FAQs Section End -->
-
-    <!-- Latest Posts Section Start -->
-    <div class="latest-posts">
-        <div class="container">
-            <div class="row section-row align-items-center">
-                <div class="col-lg-7">
-                    <!-- Section Title Start -->
-                    <div class="section-title">
-                        <h3 class="wow fadeInUp">последние новости</h3>
-                        <h2 class="text-anime-style-3" data-cursor="-opaque">Будьте в курсе наших новостей!</h2>
-                    </div>
-                    <!-- Section Title End -->
-                </div>
-
-                <div class="col-lg-5">
-                    <!-- Section Title Content Start -->
-                    <div class="section-title-content">
-                        <p class="wow fadeInUp" data-wow-delay="0.25s">Мы регулярно обновляем новости, делимся важной информацией и предлагаем эксклюзивные предложения. Подключайтесь к нашим новостям, чтобы быть в курсе всех событий и преимуществ!</p>
-                    </div>
-                    <!-- Section Title Content End -->
-                </div>
-            </div>
-
-            <div class="row">
-                <div class="col-md-6">
-                    <!-- Post Item Start -->
-                    <div class="post-item wow fadeInUp">
-                        <!-- Post Featured Image Start -->
-                        <div class="post-featured-image">
-                            <a href="#" class="image-anime" data-cursor-text="">
-                                <figure>
-                                    <img src="{% static 'images/post-1.jpg' %}" alt="">
-                                </figure>
-                            </a>
-                        </div>
-                        <!-- Post Featured Image End -->
-
-                        <!-- Post Item Body Start -->
-                        <div class="post-item-body">
-                            <!-- Post Meta Start -->
-                            <div class="post-meta">
-                                <ul>
-                                    <li><a href="#"><i class="fa-solid fa-calendar-days"></i> sep 28, 2024</a></li>
-                                </ul>
-                            </div>
-                            <!-- Post Meta End -->
-
-                            <!-- Post Content Start -->
-                            <div class="post-item-content">
-                                <h3><a href="#">Мы запустили новую линию продуктов!</a></h3>
-                            </div>
-                            <!-- Post Content End -->
-
-                            <!-- Post Read More Btn Start -->
-                            <div class="post-btn">
-                                <a href="#" class="readmore-btn"><img src="{% static 'images/icon-arrow.svg' %}" alt=""></a>
-                            </div>
-                            <!-- Post Read More Btn End -->
-                        </div>
-                        <!-- Post Item Body End -->
-                    </div>
-                    <!-- Post Item End -->
-                </div>
-
-                <div class="col-md-6">
-                    <!-- Post Item Start -->
-                    <div class="post-item wow fadeInUp" data-wow-delay="0.25s">
-                        <!-- Post Featured Image Start -->
-                        <div class="post-featured-image">
-                            <a href="#" class="image-anime" data-cursor-text="">
-                                <figure>
-                                    <img src="{% static 'images/post-2.jpg' %}" alt="">
-                                </figure>
-                            </a>
-                        </div>
-                        <!-- Post Featured Image End -->
-
-                        <!-- Post Item Body Start -->
-                        <div class="post-item-body">
-                            <!-- Post Meta Start -->
-                            <div class="post-meta">
-                                <ul>
-                                    <li><a href="#"><i class="fa-solid fa-calendar-days"></i> sep 29, 2024</a></li>
-                                </ul>
-                            </div>
-                            <!-- Post Meta End -->
-                            <!-- Post Content Start -->
-                            <div class="post-item-content">
-                                <h3><a href="#">Стартует программа лояльности для партнёров</a></h3>
-                            </div>
-                            <!-- Post Content End -->
-
-                            <!-- Post Read More Btn Start -->
-                            <div class="post-btn">
-                                <a href="#" class="readmore-btn"><img src="{% static 'images/icon-arrow.svg' %}" alt=""></a>
-                            </div>
-                            <!-- Post Read More Btn End -->
-                        </div>
-                        <!-- Post Item Body End -->
-                    </div>
-                    <!-- Post Item End -->
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- Latest Posts Section End -->
-
     <!-- Footer Start -->
     {% include 'include/footer.html' %}
     <!-- Footer End -->

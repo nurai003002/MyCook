@@ -257,3 +257,29 @@ class WhyTheyChooseUsInline(models.Model):
     class Meta:
         verbose_name = 'Почему выбирают нас?'
         verbose_name_plural = 'Почему выбирают нас?'
+        
+        
+class Team(models.Model):
+    photo = models.ImageField(
+        upload_to='photo/',
+        verbose_name='Фото'
+    )
+    name = models.CharField(
+        max_length=255,
+        verbose_name='Имя'
+    )
+    position = models.CharField(
+        max_length=255,
+        verbose_name='Позиция'
+    )
+    instagram = models.URLField(
+        verbose_name='URl на instaram'
+    )
+    
+    def __str__(self):
+        return f"{self.name} - {self.position}"
+    
+    class Meta:
+        verbose_name = 'Наша команда'
+        verbose_name_plural = 'Наша команда'
+        
