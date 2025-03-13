@@ -1,6 +1,6 @@
 from django.contrib import admin
 
-from apps.cms.models import RecipeBanner, Faqs, FAQsInline, ProductBanner, Review
+from apps.cms.models import RecipeBanner, Faqs, FAQsInline, ProductBanner, Review, UrlWhatsapp
 
 # Register your models here.
 class FAQsInlineTabular(admin.TabularInline):
@@ -27,3 +27,8 @@ class ProductBannerAdmin(admin.ModelAdmin):
 class ReviewAdmin(admin.ModelAdmin):
     list_display = ('id', 'text')
     list_filter = ('id', 'text')
+    
+@admin.register(UrlWhatsapp)
+class UrlWhatsappAdmin(admin.ModelAdmin):
+    list_display = ('id', )
+    list_filter = ('id', )

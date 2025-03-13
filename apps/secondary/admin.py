@@ -52,3 +52,8 @@ class WhyTheyChooseUsAdmin(admin.ModelAdmin):
     list_display = ('id', 'title')
     list_filter = ('id', 'title')
     inlines = (WhyTheyChooseUsInlineTabular, )
+    
+@admin.register(models.Team)
+class TeamAdmin(admin.ModelAdmin):
+    list_display = ('id', 'name')
+    list_filter = ('id', 'name')

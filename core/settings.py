@@ -44,6 +44,7 @@ INSTALLED_APPS = [
     # apps
     'apps.cms',
     'apps.secondary',
+    'apps.telegram_bot',
     'apps.settings',
     'apps.users',
 ]

@@ -19,7 +19,7 @@
                     <div class="nav-menu-wrapper">
                         <ul class="navbar-nav mr-auto" id="menu">
                             <li class="nav-item"><a class="nav-link" href="{% url 'index' %}">Главная</a></li>
-                            <li class="nav-item"><a class="nav-link" href="about.html">О нас</a>
+                            <li class="nav-item"><a class="nav-link" href="{% url 'about' %}">О нас</a>
                             <li class="nav-item"><a class="nav-link" href="{% url 'video_recipes' %}">Рецепты</a></li>
                             
                             <li class="nav-item submenu"><a class="nav-link" href="#">Страницы</a>
@@ -28,12 +28,12 @@
                                     <li class="nav-item"><a class="nav-link" href="{% url 'faqs' %}">Вопросы</a></li>
                                 </ul>
                             </li>
-                            <li class="nav-item"><a class="nav-link" href="contact.html">Контакты</a></li>                             
+                            <li class="nav-item"><a class="nav-link" href="{% url 'contact' %}">Контакты</a></li>                             
                         </ul>
                     </div>
                     <!-- Header Btn Start -->
                     <div class="header-btn d-inline-flex">
-                        <a href="{% url 'guarentee' %}" class="btn-default btn-signup">Доставка</a>
+                        <a href="{{url.url}}" class="btn-default btn-signup">Доставка</a>
                     </div>
                     <!-- Header Btn End -->
                 </div>
