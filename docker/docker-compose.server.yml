@@ -1,0 +1,40 @@
+version: '3.8'
+
+services:
+  db_mycook:
+    image: postgres:15
+    env_file: ../.env
+    volumes:
+      - postgres_data_abc:/var/lib/postgresql/data
+
+  web_mycook:
+    build:
+      context: ..
+      dockerfile: Dockerfile.server
+    command: gunicorn core.asgi:application -k uvicorn.workers.UvicornWorker --bind 0.0.0.0:5004 --reload
+    volumes:
+      - ../:/app
+    env_file: 
+      - ../.env
+    depends_on:
+      - db_mycook
+    expose:
+      - "5004"
+    ports:
+      - "5004:5004" 
+
+  nginx_mycook:
+    image: nginx:latest
+    ports:
+      - "5001:80"  # Пробрасываем только порт 80 наружу
+    volumes:
+      - ../nginx/nginx.local.conf:/etc/nginx/nginx.conf:ro
+      - ../static:/app/static
+      # - ./staticfiles:/app/staticfiles
+      - ../media:/app/media
+    depends_on:
+      - web_mycook
+
+volumes:
+  postgres_data_abc:
+  
