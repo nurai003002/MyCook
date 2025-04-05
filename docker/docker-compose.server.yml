@@ -11,7 +11,7 @@ services:
     build:
       context: ..
       dockerfile: Dockerfile.server
-    command: gunicorn core.asgi:application -k uvicorn.workers.UvicornWorker --bind 0.0.0.0:5004 --reload
+    command: gunicorn core.asgi:application -k uvicorn.workers.UvicornWorker --bind 0.0.0.0:8000 --reload
     volumes:
       - ../:/app
     env_file: 
@@ -19,9 +19,9 @@ services:
     depends_on:
       - db_mycook
     expose:
-      - "5004"
+      - "8000"
     ports:
-      - "5004:5004" 
+      - "8000:8000" 
 
   nginx_mycook:
     image: nginx:latest

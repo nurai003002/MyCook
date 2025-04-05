@@ -16,6 +16,6 @@ RUN mkdir -p /static /media
 
 RUN python manage.py collectstatic --noinput
 
-EXPOSE 5004
+EXPOSE 8000
 
-CMD ["gunicorn", "--bind", "0.0.0.0:5004", "core.wsgi:application"]
+CMD ["gunicorn", "--bind", "0.0.0.0:8000", "core.wsgi:application"]
