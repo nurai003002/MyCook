@@ -27,7 +27,11 @@ SECRET_KEY = os.environ.get('SECRET_KEY')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = os.environ.get('DEBUG')
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = [
+    'mycook.webtm.ru',
+    'localhost',
+    '127.0.0.1'
+]
 
 
 # Application definition
@@ -178,3 +182,10 @@ EMAIL_HOST = 'smtp.gmail.com'  # Адрес SMTP сервера Gmail
 EMAIL_PORT = 587  # Порт для подключения к SMTP серверу Gmail
 EMAIL_HOST_USER = 'nuraj9663@gmail.com'
 EMAIL_HOST_PASSWORD = 'ваш пароль'
+
+CSRF_TRUSTED_ORIGINS = [
+    'https://mycook.webtm.ru',
+    'http://localhost'
+]
+
+CSRF_COOKIE_DOMAIN = None
