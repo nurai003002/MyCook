@@ -16,12 +16,11 @@
             <div class="col-lg-2 col-md-3 col-6">
                 <!-- Footer Links Start -->
                 <div class="footer-links">
-                    <h3>feature</h3>
+                    <h3>Соц. сети</h3>
                     <ul>
-                        <li><a href="#">payment link</a></li>
-                        <li><a href="#">invoicing</a></li>
-                        <li><a href="#">checkout</a></li>
-                        <li><a href="#">integrations</a></li>
+                        <li><a href="{{setting.telegram}}">telegram</a></li>
+                        <li><a href="{{setting.instagram}}">instagram</a></li>
+                        <li><a href="{{url.url}}">whatsapp</a></li>
                     </ul>
                 </div>
                 <!-- Footer Links End -->
@@ -30,40 +29,24 @@
             <div class="col-lg-2 col-md-3 col-6">
                 <!-- Footer Links Start -->
                 <div class="footer-links">
-                    <h3>solutions</h3>
+                    <h3>Возможности</h3>
                     <ul>
-                        <li><a href="#">e-Commerce</a></li>
-                        <li><a href="#">Finance Automation</a></li>
-                        <li><a href="#">crypto</a></li>
-                        <li><a href="#">global business</a></li>
+                        <li><a href="{% url 'video_recipes' %}">Рецепты</a></li>
+                        <li><a href="{% url 'guarentee' %}">Гарантии</a></li>
+                        <li><a href="{% url 'faqs' %}">Вопросы</a></li>
+                        <li><a href="{% url 'tasting' %}">Дегустация</a></li>
                     </ul>
                 </div>
                 <!-- Footer Links End -->
             </div>
-
             <div class="col-lg-2 col-md-3 col-6">
                 <!-- Footer Links Start -->
                 <div class="footer-links">
-                    <h3>resources</h3>
+                    <h3>Страницы</h3>
                     <ul>
-                        <li><a href="#">support</a></li>
-                        <li><a href="#">blogance</a></li>
-                        <li><a href="#">community</a></li>
-                        <li><a href="#">privacy policy</a></li>
-                    </ul>
-                </div>
-                <!-- Footer Links End -->
-            </div>
-
-            <div class="col-lg-2 col-md-3 col-6">
-                <!-- Footer Links Start -->
-                <div class="footer-links">
-                    <h3>company</h3>
-                    <ul>
-                        <li><a href="#">home</a></li>
-                        <li><a href="#">about us</a></li>
-                        <li><a href="#">services</a></li>
-                        <li><a href="#">contact</a></li>
+                        <li><a href="{% url 'index' %}">Главная</a></li>
+                        <li><a href="{% url 'about' %}">О нас</a></li>
+                        <li><a href="{% url 'contact' %}">Контакты</a></li>
                     </ul>
                 </div>
                 <!-- Footer Links End -->
@@ -85,10 +68,9 @@
                     <!-- Footer Social Link Start -->
                     <div class="footer-social-links">
                         <ul>
-                            <li><a href="#"><i class="fa-brands fa-facebook-f"></i></a></li>
-                            <li><a href="#"><i class="fa-brands fa-x-twitter"></i></a></li>
-                            <li><a href="#"><i class="fa-brands fa-instagram"></i></a></li>
-                            <li><a href="#"><i class="fa-brands fa-linkedin-in"></i></a></li>
+                            <li><a href="{{setting.facebook}}"><i class="fa-brands fa-facebook-f"></i></a></li>
+                            <li><a href="{{setting.instagram}}"><i class="fa-brands fa-instagram"></i></a></li>
+                            <li><a href="{{setting.telegram}}"><i class="fa-brands fa-telegram"></i></a></li>
                         </ul>
                     </div>
                     <!-- Footer Social Link End -->

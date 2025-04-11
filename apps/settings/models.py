@@ -40,6 +40,10 @@ class Setting(models.Model):
         verbose_name = 'URL instagram',
         blank=True, null=True
     )
+    telegram = models.URLField(
+        verbose_name = 'URL telegram',
+        blank=True, null=True
+    )
     updated_at = models.DateTimeField(auto_now=True)
 
     def __str__(self):

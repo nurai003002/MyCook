@@ -135,28 +135,48 @@
                 <div class="service-item wow fadeInUp">
                     <!-- Service Image Start -->
                     <div class="service-image">
-                        <a href="">
                             <figure class="image-anime">
                                 <img src="{{assortment.image.url}}" alt="">
                             </figure>
-                        </a>
                     </div>
                     <!-- Service Image End -->
-
                     <!-- Service Body Start -->
                     <div class="service-body">
                         <!-- Service Content Start -->
                         <div class="service-content">
-                            <h3>{{assortment.title}}</h3>
-                            <p>{{assortment.description|safe|truncatewords:5}}.</p>
-                        </div>
-                        <!-- Service Content End -->
+                            <h3>{{ assortment.title }}</h3>
+                        
+                            {% with assortment.description|striptags as clean_desc %}
+                                {% with clean_desc|truncatewords:5 as short_text %}
+                                    {% with clean_desc|cut:short_text as remaining_text %}
+                                        <p>
+                                            <span class="short-text">{{ short_text }}...</span>
+                                            <span class="full-text" style="display: none;">{{ clean_desc }}</span>
+                                        </p>
+                                    {% endwith %}
+                                {% endwith %}
+                            {% endwith %}
+                        
+                            <a href="javascript:void(0);" class="toggle-btn" onclick="toggleDescription(this)">Показать больше</a>
 
-                        <!-- Service Button Start -->
-                        <div class="service-btn">
-                            <a href="#" class="readmore-btn"><img src="{% static 'images/icon-arrow.svg' %}" alt=""></a>
                         </div>
-                        <!-- Service Button End -->
+                        <script>
+                            function toggleDescription(button) {
+                                const container = button.closest(".service-content");
+                                const shortText = container.querySelector(".short-text");
+                                const fullText = container.querySelector(".full-text");
+                        
+                                if (fullText.style.display === "none") {
+                                    shortText.style.display = "none";
+                                    fullText.style.display = "inline";
+                                    button.innerText = "Скрыть";
+                                } else {
+                                    shortText.style.display = "inline";
+                                    fullText.style.display = "none";
+                                    button.innerText = "Показать больше";
+                                }
+                            }
+                        </script>
                     </div>
                     <!-- Service Body End -->
                 </div>
@@ -196,7 +216,7 @@
             <div class="col-md-6">
                 <div class="post-item wow fadeInUp">
                     <div class="post-featured-image">
-                        <a href="#" class="image-anime" data-cursor-text="View">
+                        <a href="{% url 'tasting_detail' tasting.id %}" class="image-anime" data-cursor-text="Смотреть">
                             <figure>
                                 <img src="{{tasting.image.url}}" alt="">
                             </figure>
